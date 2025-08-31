@@ -1,0 +1,67 @@
+/* Import Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Base Styles
+========================= */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* Make sure images and videos scale nicely */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove list styles globally */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Links */
+a {
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+  text-decoration: none;
+}
+
+/* Buttons */
+button {
+  @apply px-4 py-2 rounded-lg bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition;
+}
+
+/* Headings */
+h1 {
+  @apply text-4xl font-bold;
+}
+h2 {
+  @apply text-3xl font-semibold;
+}
+h3 {
+  @apply text-2xl font-semibold;
+}
+h4 {
+  @apply text-xl font-medium;
+}
+
+/* Container utility */
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Cards */
+.card {
+  @apply bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition;
+}

@@ -1,33 +1,44 @@
-// components/ui/Button.tsx
-import React from 'react';
+import type { Config } from "tailwindcss";
 
-type ButtonProps = {
-  variant?: 'primary' | 'secondary' | 'accent';
-  size?: 'sm' | 'md' | 'lg';
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#2563eb", // blue-600
+          light: "#3b82f6",   // blue-500
+          dark: "#1e40af",    // blue-800
+        },
+        secondary: {
+          DEFAULT: "#10b981", // emerald-500
+          light: "#34d399",   // emerald-400
+          dark: "#047857",    // emerald-700
+        },
+        background: "#f9fafb", // light gray background
+      },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Poppins", "system-ui", "sans-serif"],
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
+        },
+      },
+    },
+  },
+  plugins: [],
+};
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
-    const baseClasses = "font-semibold rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200";
-
-    const variantClasses = {
-      primary: 'bg-brand-primary text-white hover:bg-green-800 focus:ring-brand-primary',
-      secondary: 'bg-brand-secondary text-white hover:bg-blue-800 focus:ring-brand-secondary',
-      accent: 'bg-brand-accent text-white hover:bg-orange-600 focus:ring-brand-accent',
-    };
-
-    const sizeClasses = {
-      sm: 'px-3 py-1.5 text-sm',
-      md: 'px-5 py-2.5 text-base',
-      lg: 'px-6 py-3 text-lg',
-    };
-
-    const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-
-    return <button className={combinedClasses} ref={ref} {...props} />;
-  }
-);
-
-Button.displayName = 'Button';
-
-export { Button };
+export default config;

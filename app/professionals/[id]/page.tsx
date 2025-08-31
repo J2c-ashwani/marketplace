@@ -1,8 +1,8 @@
 // app/professionals/profile/[id]/page.tsx
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/Badge'; // Assume you created this component
 
 // This is a server component, so you can fetch data directly.
